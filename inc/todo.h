@@ -4,25 +4,26 @@
 #include <string>
 #include <vector>
 
-struct Task
+enum class TASK_CMD
 {
-    int id;
-    bool done;
-    std::string task;
+    ADD = 0,
+    LIST,
+    REMOVE,
+    DONE,
+    UNKNOWN,
 };
 
 class ToDo
 {
 private:
     sqlite3* db_ = nullptr;
-    std::vector<Task> todo_vec;
 
 public:
     explicit ToDo();
     ~ToDo();
 
     void add(const std::string& task) const;
-    void list();
-    void remove();
-    void done();
+    void list() const;
+    void remove(int id) const;
+    void done(int id) const;
 };
