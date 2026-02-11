@@ -10,6 +10,6 @@ file(GLOB APP_SOURCES CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/src/*.cpp")
 
 add_executable(cpp_todo main.cpp ${APP_SOURCES})
 
-target_include_directories(cpp_todo PRIVATE "${CMAKE_SOURCE_DIR}/inc")
+target_include_directories(cpp_todo PRIVATE "${CMAKE_SOURCE_DIR}/inc" "${CMAKE_SOURCE_DIR}/third_party")
 find_package(SQLite3 REQUIRED)
 target_link_libraries(cpp_todo PRIVATE SQLite::SQLite3)
